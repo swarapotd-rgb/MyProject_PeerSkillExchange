@@ -1,0 +1,66 @@
+<mxfile host="app.diagrams.net" agent="Lab1" type="device">
+  <diagram id="usecase56" name="PS56 Use Case Diagram">
+    <mxGraphModel dx="1100" dy="830" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="826" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <mxCell id="boundary" value="Peer Skill Exchange &amp; Mentorship Network" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fontSize=15;fontStyle=1;fillColor=none;strokeColor=#333333;strokeWidth=2;spacingTop=8;" vertex="1" parent="1">
+          <mxGeometry x="280" y="60" width="560" height="720" as="geometry" />
+        </mxCell>
+
+        <mxCell id="a1" value="Learner Member" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="230" width="40" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="a2" value="Skill Mentor" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="120" y="510" width="40" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="a3" value="Calendar Service&#10;&#171;external system&#187;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="940" y="340" width="40" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="uc3" value="Search for Mentor" style="ellipse;whiteSpace=wrap;html=1;fontSize=13;fillColor=#f5f5f5;strokeColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="340" y="120" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc4" value="Book Skill Session" style="ellipse;whiteSpace=wrap;html=1;fontSize=13;fillColor=#f5f5f5;strokeColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="340" y="230" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc7" value="Check Time-Credit Balance" style="ellipse;whiteSpace=wrap;html=1;fontSize=13;fillColor=#f5f5f5;strokeColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="620" y="230" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc8" value="Sync Session to External Calendar" style="ellipse;whiteSpace=wrap;html=1;fontSize=13;fillColor=#f5f5f5;strokeColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="620" y="340" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc1" value="Register Teaching Skill" style="ellipse;whiteSpace=wrap;html=1;fontSize=13;fillColor=#f5f5f5;strokeColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="340" y="420" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc2" value="Manage Availability" style="ellipse;whiteSpace=wrap;html=1;fontSize=13;fillColor=#f5f5f5;strokeColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="340" y="510" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc5" value="Verify Session Completion" style="ellipse;whiteSpace=wrap;html=1;fontSize=13;fillColor=#f5f5f5;strokeColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="340" y="610" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc6" value="Manage Time-Credit Balance" style="ellipse;whiteSpace=wrap;html=1;fontSize=13;fillColor=#f5f5f5;strokeColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="620" y="610" width="200" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="uc9" value="Add Written Feedback Comment" style="ellipse;whiteSpace=wrap;html=1;fontSize=13;fillColor=#f5f5f5;strokeColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="620" y="700" width="200" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="e1" style="endArrow=none;html=1;rounded=0;strokeColor=#333333;exitX=1;exitY=0.3;exitDx=0;exitDy=0;" edge="1" parent="1" source="a1" target="uc3"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e2" style="endArrow=none;html=1;rounded=0;strokeColor=#333333;" edge="1" parent="1" source="a1" target="uc4"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e3" style="endArrow=none;html=1;rounded=0;strokeColor=#333333;" edge="1" parent="1" source="a1" target="uc5"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e4" style="endArrow=none;html=1;rounded=0;strokeColor=#333333;" edge="1" parent="1" source="a2" target="uc1"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e5" style="endArrow=none;html=1;rounded=0;strokeColor=#333333;" edge="1" parent="1" source="a2" target="uc2"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e6" style="endArrow=none;html=1;rounded=0;strokeColor=#333333;" edge="1" parent="1" source="a2" target="uc5"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e7" style="endArrow=none;html=1;rounded=0;strokeColor=#333333;" edge="1" parent="1" source="a3" target="uc8"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+        <mxCell id="e8" value="&#171;include&#187;" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;strokeColor=#333333;fontSize=12;verticalAlign=bottom;" edge="1" parent="1" source="uc4" target="uc7"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e9" value="&#171;include&#187;" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;strokeColor=#333333;fontSize=12;verticalAlign=bottom;" edge="1" parent="1" source="uc5" target="uc6"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e10" value="&#171;extend&#187;" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;strokeColor=#333333;fontSize=12;verticalAlign=bottom;" edge="1" parent="1" source="uc8" target="uc4"><mxGeometry relative="1" as="geometry" /></mxCell>
+        <mxCell id="e11" value="&#171;extend&#187;" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;strokeColor=#333333;fontSize=12;verticalAlign=bottom;" edge="1" parent="1" source="uc9" target="uc5"><mxGeometry relative="1" as="geometry" /></mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
