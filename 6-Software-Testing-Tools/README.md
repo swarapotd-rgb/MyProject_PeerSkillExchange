@@ -1,52 +1,47 @@
-# 6 — Software Testing Tools Practice
+# 6 — Software Testing Tools (Lab 4: Vibe Coding)
 
-The lab provides a repository containing a game application with four test cases. The exercise is to run the tests, find the bug, fix it using AI-assisted ("vibe") coding, retest, and share the fixed repository link.
-
-## What this folder needs
-
-| Item | Status |
-|---|---|
-| Link to the provided game application repository | To be added |
-| Screenshot of the four tests failing before the fix | To be added |
-| The diagnosis — what the bug actually was | To be added |
-| Screenshot of the AI tool being used to produce the fix | To be added |
-| Screenshot of the tests passing after the fix | To be added |
-| Link to the fixed repository | To be added |
+A broken Pygame game was assigned, along with one deliberate bug and three features to add. The bug was found, fixed and retested, and the features were added, all through prompts to an AI coding agent (Google Antigravity).
 
 ## Links
 
-**Provided repository:** `<add link here>`
+| | |
+|---|---|
+| **Assigned repository** | [SETAPESU26/56_tug_of_war](https://github.com/SETAPESU26/56_tug_of_war) |
+| **Fixed repository (my fork)** | [swarapotd-rgb/56_tug_of_war](https://github.com/swarapotd-rgb/56_tug_of_war) |
 
-**Fixed repository:** `<add link here>`
+## What is in `Lab-4/`
 
-## Suggested screenshots
+| File | What it is |
+|---|---|
+| [`before.mp4`](./Lab-4/before.mp4) | Gameplay **before** any changes. Mashing A and D quickly, presses get dropped, and the computer wins. |
+| [`after.mp4`](./Lab-4/after.mp4) | Gameplay **after** all changes. The bug is gone and all three new features are visible, including Sudden Death at 0:45. |
+| [`chat_history.pdf`](./Lab-4/chat_history.pdf) | The full conversation with the AI agent, showing every prompt. |
+| [`code/`](./Lab-4/code) | The updated game code. |
 
-| # | Filename | What it should show |
+## The game
+
+Tug of war in Pygame. The player pulls the rope left by **alternating A and D**. The computer pulls right on its own. Whoever drags the red flag past their line wins. **R** restarts.
+
+## Task 1 — The bug: alternating input deadlock
+
+**What went wrong:** mashing A and D quickly made many presses get ignored. The rope barely moved and the computer won easily.
+
+**Cause:** after each press, the game locked input and only unlocked it when that **same** key was released. When mashing fast, fingers overlap — D gets pressed before A is fully released. That D press arrived while input was still locked, so it was thrown away. About half the presses were lost this way.
+
+**Fix:** the lock was removed. A press now counts if it is a **different** key from the last one. So A → D → A still works, pressing A → A → A still does nothing (the game's rule is unchanged), and overlapping presses are no longer lost.
+
+**Retest:** mashing with overlapping fingers now moves the flag steadily left, and the player can win — shown at the start of `after.mp4`.
+
+## Tasks 2–4 — Features added
+
+| Task | Feature | How it works |
 |---|---|---|
-| 1 | `01-tests-failing.png` | Test runner output with the failing case(s) |
-| 2 | `02-bug-located.png` | The offending line in the source |
-| 3 | `03-ai-fix-suggestion.png` | The AI tool proposing the patch |
-| 4 | `04-patch-applied.png` | The diff or the corrected code |
-| 5 | `05-tests-passing.png` | All four tests green after the fix |
+| 2 | **AI panic surges** | The closer the flag gets to the player's winning line, the faster and harder the computer pulls. It increases smoothly, not all at once. A red **PANIC!** label shows while it is active. |
+| 3 | **Rope and leaning animations** | The rope sags when quiet, and goes tight and wobbles during a hard struggle. Both characters lean back or forward depending on who has the momentum. |
+| 4 | **Match timer and Sudden Death** | A live timer at the top. After 45 seconds with no winner, **SUDDEN DEATH!** starts and every pull becomes twice as strong. R resets it all. |
 
-## Process to follow
+## How it was done
 
-1. **Read the provided README first.** It explains what the game does, how to run the tests, and how the testing process is meant to work. Follow it rather than guessing.
-2. **Run the tests before changing anything.** The failing output is evidence, and without a "before" screenshot the "after" proves nothing.
-3. **Read the failure message properly.** Which test failed, on what input, with what expected versus actual value. This usually points at the bug faster than reading the whole source.
-4. **Ask the AI tool with the failure as context,** not just "fix my code". Paste the failing test and the function it exercises.
-5. **Verify the fix yourself.** An AI patch that makes a test pass is not automatically correct — check that it fixes the cause rather than special-casing the test input.
-6. **Retest the full suite,** not only the test that was failing. A patch that breaks a previously passing test is a regression.
-7. **Commit the fix with a message that names the bug,** then record the repository link above.
+Each task was given to the agent as a separate prompt in one conversation, with the relevant file and the expected behaviour described. After every change, the game was run and tested by hand before moving on to the next task.
 
-## Write-up
-
-When the fix is done, add a short note here covering:
-
-- What the four test cases check
-- Which one failed and why
-- What the root cause was, in one or two sentences
-- What the patch changed
-- Whether the AI tool's first suggestion was correct, or needed adjusting
-
-That last point is the one most worth being honest about — a note saying the first suggested patch only masked the symptom and a second attempt was needed shows the testing process actually did its job.
+One thing that needed care: the bug only appears when key presses **overlap**. Tapping A and D cleanly one at a time works even in the broken version, so the first test run looked fine. Recording the "before" video required mashing the way a real player does, with fingers rolling across the keys.
